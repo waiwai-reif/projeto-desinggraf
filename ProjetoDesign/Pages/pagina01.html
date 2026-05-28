@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços — FORMA Design</title>
+  <!-- CSS global: caminho sobe uma pasta (../) pois estamos em /pages -->
+  <link rel="stylesheet" href="../css/estilo.css">
+
+  <!-- Estilos exclusivos desta página (tabelas) -->
+  <style>
+    /* Introdução da página */
+    .intro {
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 1px solid var(--cor-borda);
+      margin-bottom: 2rem;
+    }
+
+    /* Estilo da tabela */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Cabeçalho da tabela */
+    thead {
+      background-color: var(--cor-destaque);
+      color: #0e0e0e;
+    }
+
+    thead th {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.85rem;
+    }
+
+    /* Células do corpo da tabela */
+    tbody td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--cor-borda);
+      color: var(--cor-texto-suave);
+    }
+
+    /* Primeira coluna em destaque */
+    tbody td:first-child {
+      color: var(--cor-texto);
+      font-weight: 500;
+    }
+
+    /* Linhas alternadas (zebra) */
+    tbody tr:nth-child(even) {
+      background-color: var(--cor-superficie);
+    }
+
+    /* Hover nas linhas */
+    tbody tr:hover {
+      background-color: #222;
+    }
+
+    /* Badge de destaque na tabela */
+    .badge {
+      display: inline-block;
+      background-color: var(--cor-destaque);
+      color: #0e0e0e;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 2px;
+      text-transform: uppercase;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* Subtítulo de tabela */
+    .titulo-tabela {
+      margin: 2rem 0 0.8rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== CABEÇALHO ===== -->
+  <header>
+    <a href="../index.html" class="logo">FORMA</a>
+
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="pagina01.html" class="ativo">Serviços</a></li>
+        <li><a href="pagina02.html">Portfólio</a></li>
+        <li><a href="pagina03.html">Contato</a></li>
+        <li><a href="pagina07.html">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <main>
+
+    <!-- Introdução -->
+    <section class="intro">
+      <h1>Serviços</h1>
+      <p>
+        Confira abaixo nossa lista completa de serviços, prazos estimados
+        e faixa de investimento. Cada projeto é tratado de forma única.
+      </p>
+    </section>
+
+    <!-- Tabela 1: Identidade Visual -->
+    <section>
+      <h2 class="titulo-tabela">Identidade Visual</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Serviço</th>
+            <th>O que inclui</th>
+            <th>Prazo</th>
+            <th>Investimento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Logo Básico</td>
+            <td>1 conceito, 2 revisões, arquivo PNG/SVG</td>
+            <td>5 dias úteis</td>
+            <td>A partir de R$ 350</td>
+          </tr>
+          <tr>
+            <td>Logo Profissional <span class="badge">Popular</span></td>
+            <td>3 conceitos, revisões ilimitadas, manual de uso</td>
+            <td>10 dias úteis</td>
+            <td>A partir de R$ 750</td>
+          </tr>
+          <tr>
+            <td>Identidade Completa</td>
+            <td>Logo + paleta + tipografia + papelaria + brandbook</td>
+            <td>20 dias úteis</td>
+            <td>A partir de R$ 2.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Tabela 2: Material Gráfico -->
+    <section>
+      <h2 class="titulo-tabela">Material Gráfico</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Serviço</th>
+            <th>Formato entregue</th>
+            <th>Prazo</th>
+            <th>Investimento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cartão de Visita</td>
+            <td>Frente e verso, arquivo para gráfica</td>
+            <td>3 dias úteis</td>
+            <td>A partir de R$ 150</td>
+          </tr>
+          <tr>
+            <td>Cartaz / Flyer</td>
+            <td>Arquivo em alta resolução (PDF/JPEG)</td>
+            <td>3 dias úteis</td>
+            <td>A partir de R$ 200</td>
+          </tr>
+          <tr>
+            <td>Banner</td>
+            <td>Arquivo em alta resolução, 1 revisão</td>
+            <td>4 dias úteis</td>
+            <td>A partir de R$ 180</td>
+          </tr>
+          <tr>
+            <td>Embalagem</td>
+            <td>Dieline + arte finalizada para impressão</td>
+            <td>10 dias úteis</td>
+            <td>A partir de R$ 600</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Tabela 3: Design Digital -->
+    <section>
+      <h2 class="titulo-tabela">Design Digital</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Serviço</th>
+            <th>Quantidade</th>
+            <th>Prazo</th>
+            <th>Investimento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pack de Posts para Redes Sociais</td>
+            <td>10 artes em PNG/PDF</td>
+            <td>5 dias úteis</td>
+            <td>A partir de R$ 400</td>
+          </tr>
+          <tr>
+            <td>Template Editável (Canva/Figma)</td>
+            <td>5 layouts personalizados</td>
+            <td>7 dias úteis</td>
+            <td>A partir de R$ 300</td>
+          </tr>
+          <tr>
+            <td>Capa para YouTube / Twitch</td>
+            <td>1 arte por plataforma</td>
+            <td>2 dias úteis</td>
+            <td>A partir de R$ 120</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Rodapé de aviso -->
+    <p>
+      * Todos os valores são estimativas. O orçamento final é definido
+      após análise detalhada do briefing do cliente.
+      <a href="pagina03.html" style="color: var(--cor-destaque);">Solicite um orçamento →</a>
+    </p>
+
+  </main>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer>
+    <p>&copy; 2025 <span>FORMA Design</span> — Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>
