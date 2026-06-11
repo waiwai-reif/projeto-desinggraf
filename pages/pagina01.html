@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Serviços — FORMA Design</title>
-  <!-- CSS global: caminho sobe uma pasta (../) pois estamos em /pages -->
   <link rel="stylesheet" href="../css/estilo.css">
+  <link rel="icon" type="image/png" href="../images/icon_forma.png">">
 
-  <!-- Estilos exclusivos desta página (tabelas) -->
+
   <style>
-    /* Introdução da página */
     .intro {
       padding: 2.5rem 0 1.5rem;
       border-bottom: 1px solid var(--cor-borda);
       margin-bottom: 2rem;
     }
 
-    /* Estilo da tabela */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -24,7 +23,6 @@
       font-size: 0.95rem;
     }
 
-    /* Cabeçalho da tabela */
     thead {
       background-color: var(--cor-destaque);
       color: #0e0e0e;
@@ -39,30 +37,25 @@
       font-size: 0.85rem;
     }
 
-    /* Células do corpo da tabela */
     tbody td {
       padding: 0.75rem 1rem;
       border-bottom: 1px solid var(--cor-borda);
       color: var(--cor-texto-suave);
     }
 
-    /* Primeira coluna em destaque */
     tbody td:first-child {
       color: var(--cor-texto);
       font-weight: 500;
     }
 
-    /* Linhas alternadas (zebra) */
     tbody tr:nth-child(even) {
       background-color: var(--cor-superficie);
     }
 
-    /* Hover nas linhas */
     tbody tr:hover {
       background-color: #222;
     }
 
-    /* Badge de destaque na tabela */
     .badge {
       display: inline-block;
       background-color: var(--cor-destaque);
@@ -76,7 +69,6 @@
       vertical-align: middle;
     }
 
-    /* Subtítulo de tabela */
     .titulo-tabela {
       margin: 2rem 0 0.8rem;
     }
@@ -85,7 +77,6 @@
 
 <body>
 
-  <!-- ===== CABEÇALHO ===== -->
   <header>
     <a href="../index.html" class="logo">FORMA</a>
 
@@ -95,15 +86,14 @@
         <li><a href="pagina01.html" class="ativo">Serviços</a></li>
         <li><a href="pagina02.html">Portfólio</a></li>
         <li><a href="pagina03.html">Contato</a></li>
+        <li><a href="pagina06.html">Orçamento</a></li>
         <li><a href="pagina07.html">Sobre</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
   <main>
 
-    <!-- Introdução -->
     <section class="intro">
       <h1>Serviços</h1>
       <p>
@@ -112,7 +102,6 @@
       </p>
     </section>
 
-    <!-- Tabela 1: Identidade Visual -->
     <section>
       <h2 class="titulo-tabela">Identidade Visual</h2>
 
@@ -226,11 +215,10 @@
       </table>
     </section>
 
-    <!-- Rodapé de aviso -->
     <p>
       * Todos os valores são estimativas. O orçamento final é definido
       após análise detalhada do briefing do cliente.
-      <a href="pagina03.html" style="color: var(--cor-destaque);">Solicite um orçamento →</a>
+      <a href="pagina06.html" style="color: var(--cor-destaque);">Solicite um orçamento →</a>
     </p>
 
   </main>
@@ -241,4 +229,5 @@
   </footer>
 
 </body>
+
 </html>
