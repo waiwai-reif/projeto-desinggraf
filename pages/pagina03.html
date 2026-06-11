@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contato — FORMA Design</title>
   <link rel="stylesheet" href="../css/estilo.css">
+   <link rel="icon" type="image/png" href="../images/icon_forma.png">">
+
 
   <!-- Estilos exclusivos desta página (formulário) -->
   <style>
@@ -138,6 +140,7 @@
         <li><a href="pagina01.html">Serviços</a></li>
         <li><a href="pagina02.html">Portfólio</a></li>
         <li><a href="pagina03.html" class="ativo">Contato</a></li>
+        <li><a href="pagina06.html">Orçamento</a></li>
         <li><a href="pagina07.html">Sobre</a></li>
       </ul>
     </nav>
@@ -158,7 +161,7 @@
           Por enquanto, "#" mantém o usuário na mesma página.
           Em produção, substitua por um endpoint real.
         -->
-        <form action="#" method="post">
+        <form action="#" method="post" onsubmit="enviarFormulario(event)">
 
           <!-- Nome completo -->
           <div class="campo">
@@ -265,4 +268,13 @@
   </footer>
 
 </body>
+
+<script>
+function enviarFormulario(event) {
+    event.preventDefault();
+
+    alert("Formulário enviado com sucesso!");
+}
+</script>
+
 </html>
