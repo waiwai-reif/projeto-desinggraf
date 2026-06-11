@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfólio — FORMA Design</title>
   <link rel="stylesheet" href="../css/estilo.css">
+  <link rel="icon" type="image/png" href="../images/icon_forma.png">
 
-  <!-- Estilos exclusivos desta página (grid/galeria) -->
   <style>
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* Introdução */
     .intro {
       padding: 2.5rem 0 1.5rem;
@@ -15,7 +22,6 @@
       margin-bottom: 2rem;
     }
 
-    /* Filtros de categoria */
     .filtros {
       display: flex;
       gap: 0.75rem;
@@ -40,34 +46,46 @@
       color: var(--cor-destaque);
     }
 
-    /* Grade principal do portfólio (3 colunas) */
     .grade-portfolio {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
     }
 
-    /* Card de projeto */
     .card-projeto {
       background-color: var(--cor-superficie);
       border: 1px solid var(--cor-borda);
       border-radius: var(--raio-borda);
       overflow: hidden;
+      /* Fundamental para conter o zoom do hover */
     }
 
-    /* Imagem placeholder do projeto */
     .card-projeto .thumb {
       width: 100%;
-      aspect-ratio: 4 / 3;     /* proporção da imagem */
+      aspect-ratio: 4 / 3;
+      /* A proporção fica no container */
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.5rem;
       background-color: #222;
       border-bottom: 1px solid var(--cor-borda);
+      overflow: hidden;
     }
 
-    /* Informações abaixo da imagem */
+    .card-projeto .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.4s ease;
+      cursor: zoom-in;
+      /* Cursor de lupa */
+    }
+
+    .card-projeto:hover .thumb img {
+      transform: scale(1.08);
+    }
+
     .card-projeto .info {
       padding: 1rem 1.2rem;
     }
@@ -84,7 +102,7 @@
       letter-spacing: 1px;
     }
 
-    /* Card em destaque: ocupa 2 colunas */
+    /* Destaques do grid */
     .card-projeto.destaque {
       grid-column: span 2;
     }
@@ -93,23 +111,65 @@
       aspect-ratio: 16 / 7;
     }
 
-    /* Responsivo: 2 colunas em telas menores */
+    .modal-lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(14, 14, 14, 0.95);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .conteudo-modal {
+      max-width: 90%;
+      max-height: 85vh;
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-borda);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .botao-fechar {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: var(--cor-texto-suave);
+      font-size: 3rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .botao-fechar:hover {
+      color: var(--cor-destaque);
+    }
+
+    /* Responsividade */
     @media (max-width: 768px) {
       .grade-portfolio {
         grid-template-columns: repeat(2, 1fr);
       }
+
       .card-projeto.destaque {
         grid-column: span 2;
       }
     }
 
-    /* Responsivo: 1 coluna em telas pequenas */
     @media (max-width: 480px) {
       .grade-portfolio {
         grid-template-columns: 1fr;
       }
+
       .card-projeto.destaque {
         grid-column: span 1;
+      }
+
+      .card-projeto.destaque .thumb {
+        aspect-ratio: 4 / 3;
+        /* Corrige a proporção em celulares */
       }
     }
   </style>
@@ -117,7 +177,6 @@
 
 <body>
 
-  <!-- ===== CABEÇALHO ===== -->
   <header>
     <a href="../index.html" class="logo">FORMA</a>
 
@@ -127,42 +186,33 @@
         <li><a href="pagina01.html">Serviços</a></li>
         <li><a href="pagina02.html" class="ativo">Portfólio</a></li>
         <li><a href="pagina03.html">Contato</a></li>
+        <li><a href="pagina06.html">Orçamento</a></li>
         <li><a href="pagina07.html">Sobre</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
   <main>
 
-    <!-- Introdução -->
     <section class="intro">
       <h1>Portfólio</h1>
       <p>Uma seleção dos nossos projetos mais recentes. Cada trabalho reflete a identidade única de cada cliente.</p>
     </section>
 
-    <!-- Filtros de categoria (visuais, sem JS) -->
     <div class="filtros">
-      <span class="filtro ativo">Todos</span>
-      <span class="filtro">Identidade Visual</span>
-      <span class="filtro">Impresso</span>
-      <span class="filtro">Digital</span>
-      <span class="filtro">Embalagem</span>
+      <span class="filtro ativo" data-filtro="todos">Todos</span>
+      <span class="filtro" data-filtro="identidade">Identidade Visual</span>
+      <span class="filtro" data-filtro="impresso">Impresso</span>
+      <span class="filtro" data-filtro="digital">Digital</span>
+      <span class="filtro" data-filtro="embalagem">Embalagem</span>
     </div>
 
-    <!-- Grade de projetos -->
     <section>
       <div class="grade-portfolio">
 
-        <!-- Projeto destaque (2 colunas) -->
-        <article class="card-projeto destaque">
+        <article class="card-projeto destaque" data-categoria="identidade">
           <div class="thumb" style="background-color: #1c1c1c;">
-            ◈
-            <!--
-              DICA: Para adicionar uma imagem real, substitua a <div class="thumb">
-              por uma tag <img> assim:
-              <img src="../images/nome-do-arquivo.jpg" alt="Descrição do projeto">
-            -->
+            <img src="../images/arado.jpg" alt="Logotipo dourado do Café Arado">
           </div>
           <div class="info">
             <h3>Marca Café Arado — Identidade Visual Completa</h3>
@@ -170,45 +220,50 @@
           </div>
         </article>
 
-        <!-- Projeto 2 -->
-        <article class="card-projeto">
-          <div class="thumb" style="background-color: #1a1a25;">◉</div>
+        <article class="card-projeto" data-categoria="embalagem">
+          <div class="thumb" style="background-color: #1a1a25;">
+            <img src="../images/raiz.jpg" alt="Embalagem Orgânica Raiz">
+          </div>
           <div class="info">
             <h3>Embalagem Orgânica Raiz</h3>
             <span class="categoria">Embalagem</span>
           </div>
         </article>
 
-        <!-- Projeto 3 -->
-        <article class="card-projeto">
-          <div class="thumb" style="background-color: #1a2018;">◧</div>
+        <article class="card-projeto" data-categoria="impresso">
+          <div class="thumb" style="background-color: #1a2018;">
+            <img src="../images/cartaz.jpg" alt="Cartaz Festival Letra Viva">
+          </div>
           <div class="info">
             <h3>Cartaz Festival Letra Viva</h3>
             <span class="categoria">Impresso</span>
           </div>
         </article>
 
-        <!-- Projeto 4 -->
-        <article class="card-projeto">
-          <div class="thumb" style="background-color: #201818;">◫</div>
+        <article class="card-projeto" data-categoria="digital">
+          <div class="thumb" style="background-color: #201818;">
+            <img src="../images/spa.jpg" alt="Pack de Posts Clínica Bem-Estar">
+          </div>
           <div class="info">
             <h3>Pack de Posts — Clínica Bem-Estar</h3>
             <span class="categoria">Digital</span>
           </div>
         </article>
 
-        <!-- Projeto 5 -->
-        <article class="card-projeto">
-          <div class="thumb" style="background-color: #201820;">◪</div>
+        <article class="card-projeto destaque" data-categoria="identidade">
+          <div class="thumb" style="background-color: #201820;">
+            <img src="../images/barbearia.jpg" alt="Identidade Visual Barbearia Norte">
+          </div>
           <div class="info">
             <h3>Identidade Visual — Barbearia Norte</h3>
             <span class="categoria">Identidade Visual</span>
           </div>
         </article>
 
-        <!-- Projeto 6 -->
-        <article class="card-projeto">
-          <div class="thumb" style="background-color: #18201e;">◩</div>
+        <article class="card-projeto" data-categoria="impresso">
+          <div class="thumb" style="background-color: #18201e;">
+            <img src="../images/menu.jpg" alt="Cardápio Restaurante Taboa">
+          </div>
           <div class="info">
             <h3>Cardápio — Restaurante Taboa</h3>
             <span class="categoria">Impresso</span>
@@ -218,16 +273,70 @@
       </div>
     </section>
 
-    <!-- Chamada para ação -->
     <hr class="divisor">
     <p>Gostou do que viu? <a href="pagina03.html" style="color: var(--cor-destaque);">Entre em contato →</a></p>
 
   </main>
 
-  <!-- ===== RODAPÉ ===== -->
   <footer>
-    <p>&copy; 2025 <span>FORMA Design</span> — Todos os direitos reservados.</p>
+    <p>&copy; 2026 <span>FORMA Design</span> — Todos os direitos reservados.</p>
   </footer>
 
+  <div id="modal-visualizacao" class="modal-lightbox">
+    <span class="botao-fechar" id="fechar-modal-btn">&times;</span>
+    <img id="imagem-ampliada" class="conteudo-modal" src="" alt="">
+  </div>
+
+  <script>
+    const filtros = document.querySelectorAll(".filtro");
+    const projetos = document.querySelectorAll(".card-projeto");
+
+    filtros.forEach(filtro => {
+      filtro.addEventListener("click", () => {
+        filtros.forEach(f => f.classList.remove("ativo"));
+        filtro.classList.add("ativo");
+
+        const categoria = filtro.dataset.filtro;
+
+        projetos.forEach(projeto => {
+          if (categoria === "todos" || projeto.dataset.categoria === categoria) {
+            projeto.style.display = "block";
+          } else {
+            projeto.style.display = "none";
+          }
+        });
+      });
+    });
+
+    // Lógica do Modal de Visualização
+    const modal = document.getElementById("modal-visualizacao");
+    const imagemAmpliada = document.getElementById("imagem-ampliada");
+    const botaoFechar = document.getElementById("fechar-modal-btn");
+
+    document.querySelectorAll(".card-projeto .thumb img").forEach(img => {
+      img.addEventListener("click", () => {
+        modal.style.display = "flex"; // Abre o fundo escuro
+        imagemAmpliada.src = img.src; // Puxa a imagem clicada
+        imagemAmpliada.alt = img.alt;
+      });
+    });
+
+
+    const fecharModal = () => {
+      modal.style.display = "none";
+    };
+
+    // Fechar ao clicar no "X"
+    botaoFechar.addEventListener("click", fecharModal);
+
+    // Fechar ao clicar no fundo escuro fora da imagem
+    modal.addEventListener("click", (evento) => {
+      if (evento.target === modal) {
+        fecharModal();
+      }
+    });
+  </script>
+
 </body>
+
 </html>
