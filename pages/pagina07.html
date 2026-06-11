@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre — FORMA Design</title>
   <link rel="stylesheet" href="../css/estilo.css">
+   <link rel="icon" type="image/png" href="../images/icon_forma.png">">
 
-  <!-- Estilos exclusivos desta página -->
+
   <style>
-    /* Introdução */
     .intro {
       padding: 2.5rem 0 1.5rem;
       border-bottom: 1px solid var(--cor-borda);
       margin-bottom: 2.5rem;
     }
 
-    /* Layout de texto + destaque */
     .sobre-nos {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -24,7 +24,6 @@
       margin-bottom: 3rem;
     }
 
-    /* Bloco de números/estatísticas */
     .numeros {
       background-color: var(--cor-superficie);
       border: 1px solid var(--cor-borda);
@@ -61,7 +60,6 @@
       margin-bottom: 0;
     }
 
-    /* Grade da equipe */
     .grade-equipe {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -77,7 +75,6 @@
       text-align: center;
     }
 
-    /* Avatar placeholder */
     .card-membro .avatar {
       width: 100%;
       aspect-ratio: 1 / 1;
@@ -105,7 +102,19 @@
       letter-spacing: 1px;
     }
 
-    /* Responsivo */
+    .mapa-box {
+      background-color: var(--cor-superficie);
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-borda);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .mapa-box iframe {
+      width: 100%;
+      border-radius: var(--raio-borda);
+    }
+
     @media (max-width: 700px) {
       .sobre-nos {
         grid-template-columns: 1fr;
@@ -126,24 +135,25 @@
         <li><a href="pagina01.html">Serviços</a></li>
         <li><a href="pagina02.html">Portfólio</a></li>
         <li><a href="pagina03.html">Contato</a></li>
+        <li><a href="pagina06.html">Orçamento</a></li>
         <li><a href="pagina07.html" class="ativo">Sobre</a></li>
       </ul>
     </nav>
   </header>
 
-  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+
   <main>
 
-    <!-- Introdução -->
+
     <section class="intro">
       <h1>Sobre nós</h1>
       <p>Somos um estúdio de design gráfico com foco em identidade e comunicação visual de alto impacto.</p>
     </section>
 
-    <!-- Texto sobre o estúdio + estatísticas -->
+
     <section class="sobre-nos">
 
-      <!-- Coluna de texto -->
+
       <div>
         <h2>Nossa história</h2>
         <p>
@@ -172,7 +182,6 @@
         </p>
       </div>
 
-      <!-- Coluna de estatísticas -->
       <aside class="numeros">
         <h3>Em números</h3>
 
@@ -258,7 +267,30 @@
 
     <hr class="divisor">
 
-    <!-- CTA final -->
+    <!-- parte com o mapa -->
+    <section>
+      <div class="mapa-box">
+
+      <h2>Onde nos encontrar?</h2>
+      <p>Os escritórios da FORMA estão localizados em Belo Horizonte, Minas Gerais. Sinta-se à vontade para visitar
+        nossas instalações. Teremos o prazer de recebê-lo e conversar sobre oportunidades, projetos ou qualquer outro
+        tipo de negócio.</p>
+
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3750.5463417629785!2d-43.92632155106507!3d-19.9435132365739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa699c00e2b4f6d%3A0x151e458ff7e7fbab!2sUniversidade%20FUMEC!5e0!3m2!1spt-BR!2sbr!4v1780952864793!5m2!1spt-BR!2sbr"
+        height="450" 
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+      </div>
+
+    </section>
+
+    <hr class="divisor">
+
     <p>
       Quer fazer parte dos nossos cases?
       <a href="pagina03.html" style="color: var(--cor-destaque);">Fale com a gente →</a>
@@ -266,10 +298,10 @@
 
   </main>
 
-  <!-- ===== RODAPÉ ===== -->
   <footer>
     <p>&copy; 2025 <span>FORMA Design</span> — Todos os direitos reservados.</p>
   </footer>
 
 </body>
+
 </html>
