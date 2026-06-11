@@ -7,16 +7,18 @@
 
 /* --- 1. VARIÁVEIS DE COR E FONTE --- */
 html {
-  --cor-fundo:       #0e0e0e;
-  --cor-superficie:  #1a1a1a;
-  --cor-borda:       #2e2e2e;
-  --cor-destaque:    #f0e040;   /* amarelo gráfico */
-  --cor-texto:       #f5f5f5;
+  font-size: 62.5%;
+  --cor-fundo: #0e0e0e;
+  --cor-superficie: #1a1a1a;
+  --cor-borda: #2e2e2e;
+  --cor-destaque: #f0e040;
+  /* amarelo gráfico */
+  --cor-texto: #f5f5f5;
   --cor-texto-suave: #999999;
-  --fonte-titulo:    'Bebas Neue', sans-serif;
-  --fonte-corpo:     'DM Sans', sans-serif;
-  --raio-borda:      4px;
-  --transicao:       0.25s ease;
+  --fonte-titulo: 'Bebas Neue', sans-serif;
+  --fonte-corpo: 'DM Sans', sans-serif;
+  --raio-borda: 4px;
+  --transicao: 0.25s ease;
 }
 
 /* --- 2. RESET BÁSICO --- */
@@ -31,8 +33,14 @@ body {
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
   font-family: var(--fonte-corpo);
-  font-size: 1rem;
+  font-size: 1.6rem;
   line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* --- 4. IMPORTAÇÃO DE FONTES (Google Fonts) --- */
@@ -94,15 +102,30 @@ main {
 }
 
 /* --- 8. TÍTULOS DE SEÇÃO --- */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--fonte-titulo);
   letter-spacing: 1.5px;
   line-height: 1.1;
 }
 
-h1 { font-size: 3rem;   color: var(--cor-destaque); }
-h2 { font-size: 2rem;   color: var(--cor-texto);     margin-bottom: 1rem; }
-h3 { font-size: 1.4rem; color: var(--cor-destaque);  margin-bottom: 0.5rem; }
+h1 {
+  font-size: 3rem;
+  color: var(--cor-destaque);
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--cor-texto);
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  color: var(--cor-destaque);
+  margin-bottom: 0.5rem;
+}
 
 /* --- 9. PARÁGRAFOS E TEXTO --- */
 p {
