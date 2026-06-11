@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página — FORMA Design</title>
+    <link rel="stylesheet" href="../css/estilo.css">
+     <link rel="icon" type="image/png" href="../images/icon_forma.png">">
+
+
+    <style>
+        .intro {
+            margin-bottom: 2rem;
+        }
+
+        .grupo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .grupo button {
+            padding: 1rem 1.5rem;
+            background: var(--cor-superficie);
+            border: 1px solid var(--cor-borda);
+            color: var(--cor-texto);
+            cursor: pointer;
+            border-radius: var(--raio-borda);
+        }
+
+        .grupo button.ativo {
+            background: var(--cor-destaque);
+            color: black;
+        }
+
+        .resultado {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: var(--cor-superficie);
+            border: 1px solid var(--cor-borda);
+            border-radius: var(--raio-borda);
+        }
+
+        #valor {
+            font-size: 2rem;
+            color: var(--cor-destaque);
+            margin-top: 1rem;
+        }
+
+        .acoes {
+            margin-top: 2rem;
+        }
+
+        .botao-calcular {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--raio-borda);
+            background: var(--cor-destaque);
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #calculo p {
+            margin-bottom: .5rem;
+        }
+
+        #fisico {
+            margin-top: 1rem;
+            color: var(--cor-texto-suave);
+            font-size: .9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <a href="../index.html" class="logo">FORMA</a>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="pagina01.html">Serviços</a></li>
+                <li><a href="pagina02.html">Portfólio</a></li>
+                <li><a href="pagina03.html">Contato</a></li>
+                <li><a href="pagina06.html" class="ativo">Orçamento</a></li>
+                <li><a href="pagina07.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main>
+        <section class="intro">
+            <h1>Orçamento Especulativo</h1>
+
+            <p>
+                Esta ferramenta fornece uma estimativa aproximada para projetos de design.
+                O valor é calculado com base no tipo de serviço, prazo de entrega e nível
+                de detalhamento desejado.
+            </p>
+
+            <p>
+                O resultado não representa um orçamento oficial da FORMA Design e serve
+                apenas como referência inicial para o cliente.
+            </p>
+            <br>
+            <p>
+                <b>*produtos em "tipo de serviço" marcados com "*" são considerados produtos fisicos e será cobrado um preço
+                adicional</b>
+                <br>
+                <b>*o prazo "longo" não adiciona taxa adicional a o produto</b>
+            </p>
+        </section>
+
+        <div class="orcamento">
+
+            <h2>Tipo de Serviço</h2>
+
+            <div class="grupo" id="servico">
+                <button onclick="selecionar(this,'servico',2000,'identidade')">Identidade Visual</button>
+                <button onclick="selecionar(this,'servico',1500,'embalagem')">Embalagem*</button>
+                <button onclick="selecionar(this,'servico',1000,'impresso')">Impresso*</button>
+                <button onclick="selecionar(this,'servico',700,'digital')">Digital</button>
+            </div>
+
+            <h2>Prazo</h2>
+
+            <div class="grupo" id="prazo">
+                <button onclick="selecionar(this,'prazo',800)">Rápido</button>
+                <button onclick="selecionar(this,'prazo',300)">Médio</button>
+                <button onclick="selecionar(this,'prazo',0)">Longo</button>
+            </div>
+
+            <h2>Nível de Detalhamento</h2>
+
+            <div class="grupo" id="detalhe">
+                <button onclick="selecionar(this,'detalhe',1000)">Alto</button>
+                <button onclick="selecionar(this,'detalhe',500)">Médio</button>
+                <button onclick="selecionar(this,'detalhe',0)">Baixo</button>
+            </div>
+
+
+            <div class="resultado">
+
+                <h2>Resultado da Estimativa</h2>
+
+                <div id="calculo">
+                    <p>Aguardando cálculo...</p>
+                </div>
+
+            </div>
+
+
+            <div class="acoes">
+                <button class="botao-calcular" onclick="calcular()">
+                    Calcular Orçamento
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer>
+        <p>&copy; 2025 <span>FORMA Design</span> — Todos os direitos reservados.</p>
+    </footer>
+
+
+    <script>
+        let valores = {
+            servico: 0,
+            prazo: 0,
+            detalhe: 0
+        };
+
+        let tipoServico = "";
+
+        function selecionar(botao, grupo, valor, tipo = "") {
+
+            let botoes = document.querySelectorAll("#" + grupo + " button");
+
+            botoes.forEach(btn => btn.classList.remove("ativo"));
+
+            botao.classList.add("ativo");
+
+            valores[grupo] = valor;
+
+            if (grupo == "servico") {
+                tipoServico = tipo;
+            }
+        }
+
+        function calcular() {
+
+            let total =
+                valores.servico +
+                valores.prazo +
+                valores.detalhe;
+
+            let texto =
+                "<p>Serviço: R$ " + valores.servico + "</p>" +
+                "<p>Prazo: R$ " + valores.prazo + "</p>" +
+                "<p>Detalhamento: R$ " + valores.detalhe + "</p>";
+
+            if (tipoServico == "embalagem" || tipoServico == "impresso") {
+
+                total += 400;
+
+                texto +=
+                    "<p>Produto Físico: + R$ 400 *</p>";
+            }
+
+            texto +=
+                "<hr class='divisor'>" +
+                "<p><strong>Total Estimado: R$ " +
+                total.toLocaleString('pt-BR') +
+                "</strong></p>";
+
+            if (tipoServico == "embalagem" || tipoServico == "impresso") {
+
+                texto +=
+                    "<p>* Taxa adicional aplicada para produção física.</p>";
+            }
+
+            document.getElementById("calculo").innerHTML = texto;
+        }
+    </script>
+</body>
+
+</html>
