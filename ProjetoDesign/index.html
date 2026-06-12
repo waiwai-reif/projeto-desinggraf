@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORMA — Estúdio de Design Gráfico</title>
+  <!-- CSS global compartilhado por todas as páginas -->
+  <link rel="stylesheet" href="css/estilo.css">
+
+  <!-- Estilos exclusivos desta página (index) -->
+  <style>
+    /* Seção hero: apresentação principal */
+    .hero {
+      padding: 4rem 0 3rem;
+      border-bottom: 1px solid var(--cor-borda);
+    }
+
+    .hero .subtitulo {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--cor-destaque);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      margin-bottom: 1.2rem;
+      color: var(--cor-texto);
+    }
+
+    .hero h1 em {
+      color: var(--cor-destaque);
+      font-style: normal;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Grade de serviços */
+    .grade-servicos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .card-servico {
+      background-color: var(--cor-superficie);
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-borda);
+      padding: 1.5rem;
+      transition: border-color var(--transicao);
+    }
+
+    .card-servico:hover {
+      border-color: var(--cor-destaque);
+    }
+
+    .card-servico .icone {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Seção chamada para ação */
+    .cta {
+      background-color: var(--cor-superficie);
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-borda);
+      padding: 2.5rem;
+      margin-top: 3rem;
+      text-align: center;
+    }
+
+    .cta h2 {
+      margin-bottom: 0.8rem;
+    }
+
+    .cta p {
+      margin: 0 auto 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== CABEÇALHO ===== -->
+  <header>
+    <a href="index.html" class="logo">FORMA</a>
+
+    <nav>
+      <ul>
+        <li><a href="index.html" class="ativo">Home</a></li>
+        <li><a href="pages/pagina01.html">Serviços</a></li>
+        <li><a href="pages/pagina02.html">Portfólio</a></li>
+        <li><a href="pages/pagina03.html">Contato</a></li>
+        <li><a href="pages/pagina07.html">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <main>
+
+    <!-- Seção de apresentação -->
+    <section class="hero">
+      <p class="subtitulo">Estúdio de Design Gráfico</p>
+      <h1>Criamos <em>identidades</em> que comunicam.</h1>
+      <p>
+        Da identidade visual ao material impresso, transformamos
+        a essência da sua marca em design que conecta e convence.
+      </p>
+      <a href="pages/pagina03.html" class="botao">Solicitar orçamento</a>
+    </section>
+
+    <hr class="divisor">
+
+    <!-- Seção de serviços -->
+    <section>
+      <h2>O que fazemos</h2>
+
+      <div class="grade-servicos">
+
+        <article class="card-servico">
+          <div class="icone">◈</div>
+          <h3>Identidade Visual</h3>
+          <p>Logotipos, paleta de cores e tipografia que definem a personalidade da sua marca.</p>
+        </article>
+
+        <article class="card-servico">
+          <div class="icone">◉</div>
+          <h3>Material Gráfico</h3>
+          <p>Cartões de visita, cartazes, flyers e embalagens com acabamento profissional.</p>
+        </article>
+
+        <article class="card-servico">
+          <div class="icone">◧</div>
+          <h3>Design Digital</h3>
+          <p>Posts para redes sociais, banners e peças visuais para ambiente online.</p>
+        </article>
+
+        <article class="card-servico">
+          <div class="icone">◫</div>
+          <h3>Editoração</h3>
+          <p>Revistas, catálogos e apresentações com diagramação limpa e profissional.</p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Chamada para ação -->
+    <div class="cta">
+      <h2>Pronto para começar?</h2>
+      <p>Conte-nos sobre o seu projeto e receba um orçamento sem compromisso.</p>
+      <a href="pages/pagina03.html" class="botao">Falar com a gente</a>
+    </div>
+
+  </main>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer>
+    <p>&copy; 2026 <span>FORMA Design</span> — Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>

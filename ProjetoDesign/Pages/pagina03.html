@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato — FORMA Design</title>
+  <link rel="stylesheet" href="../css/estilo.css">
+
+  <!-- Estilos exclusivos desta página (formulário) -->
+  <style>
+    /* Layout de duas colunas: formulário + informações */
+    .layout-contato {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      padding: 2.5rem 0;
+    }
+
+    /* Título da seção */
+    .layout-contato h1 {
+      grid-column: 1 / -1;  /* ocupa as 2 colunas */
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--cor-borda);
+    }
+
+    /* ---- Estilos do formulário ---- */
+
+    /* Grupo de campo: label + input empilhados */
+    .campo {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--cor-texto-suave);
+    }
+
+    /* Estilos compartilhados entre input, select e textarea */
+    input,
+    select,
+    textarea {
+      background-color: var(--cor-superficie);
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-borda);
+      color: var(--cor-texto);
+      font-family: var(--fonte-corpo);
+      font-size: 1rem;
+      padding: 0.65rem 0.9rem;
+      width: 100%;
+      outline: none;
+      transition: border-color var(--transicao);
+    }
+
+    /* Destaca o campo que está sendo preenchido */
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--cor-destaque);
+    }
+
+    /* Garante que select não mostre fundo branco */
+    select option {
+      background-color: var(--cor-superficie);
+    }
+
+    /* Textarea não deve ser redimensionado horizontalmente */
+    textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    /* Botão de envio */
+    .botao-enviar {
+      width: 100%;
+      padding: 0.9rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ---- Coluna de informações de contato ---- */
+    .info-contato {
+      background-color: var(--cor-superficie);
+      border: 1px solid var(--cor-borda);
+      border-radius: var(--raio-borda);
+      padding: 2rem;
+    }
+
+    .info-contato h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .info-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .info-item .rotulo {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--cor-destaque);
+      margin-bottom: 0.2rem;
+    }
+
+    .info-item p {
+      color: var(--cor-texto);
+      margin-bottom: 0;
+    }
+
+    /* Responsivo: 1 coluna em telas menores */
+    @media (max-width: 700px) {
+      .layout-contato {
+        grid-template-columns: 1fr;
+      }
+      .layout-contato h1 {
+        grid-column: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== CABEÇALHO ===== -->
+  <header>
+    <a href="../index.html" class="logo">FORMA</a>
+
+    <nav>
+      <ul>
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="pagina01.html">Serviços</a></li>
+        <li><a href="pagina02.html">Portfólio</a></li>
+        <li><a href="pagina03.html" class="ativo">Contato</a></li>
+        <li><a href="pagina07.html">Sobre</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== CONTEÚDO PRINCIPAL ===== -->
+  <main>
+
+    <div class="layout-contato">
+
+      <!-- Título (ocupa as 2 colunas via CSS) -->
+      <h1>Fale conosco</h1>
+
+      <!-- COLUNA ESQUERDA: formulário -->
+      <section>
+        <!--
+          O atributo "action" define para onde os dados vão ao enviar.
+          Por enquanto, "#" mantém o usuário na mesma página.
+          Em produção, substitua por um endpoint real.
+        -->
+        <form action="#" method="post">
+
+          <!-- Nome completo -->
+          <div class="campo">
+            <label for="nome">Nome completo</label>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Seu nome"
+              required>
+          </div>
+
+          <!-- E-mail -->
+          <div class="campo">
+            <label for="email">E-mail</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="seu@email.com"
+              required>
+          </div>
+
+          <!-- Telefone (opcional) -->
+          <div class="campo">
+            <label for="telefone">Telefone (opcional)</label>
+            <input
+              type="tel"
+              id="telefone"
+              name="telefone"
+              placeholder="(00) 00000-0000">
+          </div>
+
+          <!-- Tipo de serviço -->
+          <div class="campo">
+            <label for="servico">Serviço desejado</label>
+            <select id="servico" name="servico" required>
+              <option value="">Selecione uma opção</option>
+              <option value="logo">Logo / Identidade Visual</option>
+              <option value="impresso">Material Impresso</option>
+              <option value="digital">Design Digital</option>
+              <option value="embalagem">Embalagem</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+
+          <!-- Mensagem -->
+          <div class="campo">
+            <label for="mensagem">Mensagem / Briefing</label>
+            <textarea
+              id="mensagem"
+              name="mensagem"
+              placeholder="Conte sobre o seu projeto: objetivo, público, referências, prazo..."
+              required></textarea>
+          </div>
+
+          <!-- Botão de envio -->
+          <button type="submit" class="botao botao-enviar">
+            Enviar mensagem
+          </button>
+
+        </form>
+      </section>
+
+      <!-- COLUNA DIREITA: informações de contato -->
+      <aside class="info-contato">
+        <h2>Informações</h2>
+
+        <div class="info-item">
+          <p class="rotulo">E-mail</p>
+          <p>formadesign@gmail.com.br</p>
+        </div>
+
+        <div class="info-item">
+          <p class="rotulo">WhatsApp</p>
+          <p>(31) 99999-0000</p>
+        </div>
+
+        <div class="info-item">
+          <p class="rotulo">Cidade</p>
+          <p>Belo Horizonte, MG</p>
+        </div>
+
+        <div class="info-item">
+          <p class="rotulo">Horário de atendimento</p>
+          <p>Segunda a Sexta, 00h às 00h</p>
+        </div>
+
+        <hr class="divisor" style="margin: 1.5rem 0;">
+
+        <p>
+          Respondemos em até <strong style="color: var(--cor-destaque);">24 horas úteis</strong>.
+          Quanto mais detalhes você enviar no briefing, mais preciso será o orçamento.
+        </p>
+      </aside>
+
+    </div>
+
+  </main>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer>
+    <p>&copy; 2025 <span>FORMA Design</span> — Todos os direitos reservados.</p>
+  </footer>
+
+</body>
+</html>

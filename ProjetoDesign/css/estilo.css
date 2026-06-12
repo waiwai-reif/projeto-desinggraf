@@ -1,0 +1,156 @@
+/* =============================================
+   ESTILO GLOBAL - ESTÚDIO DE DESIGN GRÁFICO
+   Arquivo: css/estilo.css
+   Descrição: Estilos compartilhados por todas
+              as páginas do site.
+   ============================================= */
+
+/* --- 1. VARIÁVEIS DE COR E FONTE --- */
+html {
+  --cor-fundo:       #0e0e0e;
+  --cor-superficie:  #1a1a1a;
+  --cor-borda:       #2e2e2e;
+  --cor-destaque:    #f0e040;   /* amarelo gráfico */
+  --cor-texto:       #f5f5f5;
+  --cor-texto-suave: #999999;
+  --fonte-titulo:    'Bebas Neue', sans-serif;
+  --fonte-corpo:     'DM Sans', sans-serif;
+  --raio-borda:      4px;
+  --transicao:       0.25s ease;
+}
+
+/* --- 2. RESET BÁSICO --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- 3. ESTILOS DO BODY --- */
+body {
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  font-family: var(--fonte-corpo);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* --- 4. IMPORTAÇÃO DE FONTES (Google Fonts) --- */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&display=swap');
+
+/* --- 5. CABEÇALHO (HEADER) --- */
+header {
+  background-color: var(--cor-superficie);
+  border-bottom: 2px solid var(--cor-destaque);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+header .logo {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: var(--cor-destaque);
+  text-decoration: none;
+}
+
+/* --- 6. NAVEGAÇÃO (NAV) --- */
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: var(--cor-texto);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color var(--transicao);
+}
+
+nav a:hover {
+  color: var(--cor-destaque);
+}
+
+nav a.ativo {
+  color: var(--cor-destaque);
+  border-bottom: 2px solid var(--cor-destaque);
+  padding-bottom: 2px;
+}
+
+/* --- 7. CONTEÚDO PRINCIPAL (MAIN) --- */
+main {
+  max-width: 1100px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+}
+
+/* --- 8. TÍTULOS DE SEÇÃO --- */
+h1, h2, h3 {
+  font-family: var(--fonte-titulo);
+  letter-spacing: 1.5px;
+  line-height: 1.1;
+}
+
+h1 { font-size: 3rem;   color: var(--cor-destaque); }
+h2 { font-size: 2rem;   color: var(--cor-texto);     margin-bottom: 1rem; }
+h3 { font-size: 1.4rem; color: var(--cor-destaque);  margin-bottom: 0.5rem; }
+
+/* --- 9. PARÁGRAFOS E TEXTO --- */
+p {
+  color: var(--cor-texto-suave);
+  margin-bottom: 1rem;
+  max-width: 65ch;
+}
+
+/* --- 10. BOTÕES --- */
+.botao {
+  display: inline-block;
+  background-color: var(--cor-destaque);
+  color: #0e0e0e;
+  padding: 0.7rem 1.6rem;
+  font-family: var(--fonte-corpo);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: var(--raio-borda);
+  cursor: pointer;
+  transition: opacity var(--transicao);
+}
+
+.botao:hover {
+  opacity: 0.85;
+}
+
+/* --- 11. DIVISOR DE SEÇÃO --- */
+.divisor {
+  border: none;
+  border-top: 1px solid var(--cor-borda);
+  margin: 2.5rem 0;
+}
+
+/* --- 12. RODAPÉ (FOOTER) --- */
+footer {
+  background-color: var(--cor-superficie);
+  border-top: 2px solid var(--cor-borda);
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: 4rem;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+footer span {
+  color: var(--cor-destaque);
+}
